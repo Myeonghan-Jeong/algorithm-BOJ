@@ -1,9 +1,8 @@
-# 1600(BFS) / find min route to reach end point
+# 1600 / find min route to reach end point
 from collections import deque
 
 
-# set function for find route
-def find(n, m, k):
+def find(n, m, k):  # set function for find route
     global D, board, checked
 
     q = deque()
@@ -13,7 +12,7 @@ def find(n, m, k):
         i, j, can = q.popleft()
 
         for d in range(12):
-            if can == 0 and d >= 4:  # if a monkey cannot jump obstacle, continue
+            if can == 0 and d >= 4:  # if a monkey cannot jump
                 continue
             ni, nj = i + D[d][0], j + D[d][1]
 
@@ -24,14 +23,19 @@ def find(n, m, k):
                             if not checked[ni][nj][can]:
                                 q.append([ni, nj, can])
                                 checked[ni][nj][can] = checked[i][j][can] + 1
-                        else:  # jumping obstacle
+                        else:  # jumping
                             if not checked[ni][nj][can - 1]:
                                 q.append([ni, nj, can - 1])
-                                checked[ni][nj][can - 1] = checked[i][j][can] + 1
+                                checked[ni][nj][
+                                    can - 1
+                                ] = checked[i][j][can] + 1
 
 
-# set default variables and values
-D = [[0, 1], [1, 0], [0, -1], [-1, 0], [1, 2], [2, 1], [2, -1], [1, -2], [-1, -2], [-2, -1], [-2, 1], [-1, 2]]
+D = [
+    [0, 1], [1, 0], [0, -1], [-1, 0],
+    [1, 2], [2, 1], [2, -1], [1, -2],
+    [-1, -2], [-2, -1], [-2, 1], [-1, 2]
+]
 
 K = int(input())
 W, H = map(int, input().split())

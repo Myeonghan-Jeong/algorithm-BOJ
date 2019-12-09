@@ -1,4 +1,4 @@
-# 1330(undefined) / compare numbers and print result
+# 1330 / compare numbers
 a, b = map(int, input().split())
 
 if a > b:
@@ -9,7 +9,7 @@ else:
     print('==')
 
 
-# 1546(undefined) / calculate new average of array with special rule
+# 1546 / calculate new average of array with a rule
 N = int(input())
 scores = list(map(int, input().split()))
 

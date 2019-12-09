@@ -1,11 +1,10 @@
-# 1389(BFS, DFS) / calculate person who has the lowest Kevin Bacon number
+# 1389 / find person has the lowest Kevin Bacon number
 N, M = map(int, input().split())
 
-link = [[N + 1] * (N + 1) for _ in range(N + 1)]  # set link matrix
+link = [[N + 1] * (N + 1) for _ in range(N + 1)]
 for m in range(M):
     a, b = map(int, input().split())
-    link[a][b] = 1
-    link[b][a] = 1
+    link[a][b], link[b][a] = 1, 1
 
 # Floyd-Warshall Algorithm #
 for k in range(1, N + 1):
@@ -25,7 +24,7 @@ for n in range(1, N + 1):
     if cnt > temp:  # find the lowest Kevin-Bacon number
         cnt = temp
         people = n
-    elif cnt == temp:  # find the lowest number who has same Kevin-Bacon number
+    elif cnt == temp:  # find person
         if people > n:
             people = n
 
