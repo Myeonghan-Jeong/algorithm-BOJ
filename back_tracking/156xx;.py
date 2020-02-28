@@ -62,3 +62,29 @@ N, M = map(int, input().split())
 
 permute = [0] * M
 npr(0, M, N)
+
+# 15652 / make permutes with duplicated, ASC numbers and select M numbers in N numbers
+
+
+def npr(n, r, t):
+    global permute
+
+    if n == r:
+        for p in permute:
+            print(p, end=' ')
+        print()
+    else:
+        if n == 0:
+            for i in range(t):
+                permute[n] = i + 1
+                npr(n + 1, r, t)
+        else:
+            for i in range(permute[n - 1], t + 1):
+                permute[n] = i
+                npr(n + 1, r, t)
+
+
+N, M = map(int, input().split())
+
+permute = [0] * M
+npr(0, M, N)
