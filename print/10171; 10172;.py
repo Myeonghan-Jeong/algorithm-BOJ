@@ -4,6 +4,7 @@ print(' )  ( \')')
 print('(  /  )')
 print(' \(__)|')
 
+
 # 10172 / print dog
 print('|\_/|')
 print('|q p|   /}')
