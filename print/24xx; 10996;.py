@@ -44,3 +44,22 @@ for i in range(1, 2 * N):
         print(' ' * (N - i) + '*' * (2 * i - 1))
     else:
         print(' ' * (i - N) + '*' * (4 * N - 2 * i - 1))
+
+
+# 2446 / print starts with sandglass
+N = int(input())
+for i in range(N):
+    print(' ' * i + '*' * (2 * (N - i) - 1))
+for i in range(N - 2, -1, -1):
+    print(' ' * i + '*' * (2 * (N - i) - 1))
+
+
+# 10996 / print stars with special rules
+N = int(input())
+odd, even = '* ' * 50, ' *' * 50
+for _ in range(N):
+    if N == 1:
+        print(odd[:N])
+    else:
+        for stars in [odd[:N], even[:N]]:
+            print(stars)
